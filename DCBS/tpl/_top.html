@@ -1,0 +1,47 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-blog-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="{{tpl:BlogURL}}"><span class="glyphicon glyphicon-home"></span></a>
+  </div>
+  
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse navbar-blog-collapse">
+    <ul class="nav navbar-nav">
+    
+      <li><a href="{{tpl:BlogArchiveURL}}"><i class="fa fa-archive"></i> {{tpl:lang Archives}}</a></li>
+
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{tpl:lang Categories}} <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+        <tpl:Categories>
+          <li><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a></li>
+        </tpl:Categories>
+        </ul>
+      </li>
+      
+      <li><a href="{{tpl:TagCloudURL}}"><i class="fa fa-tags"></i> {{tpl:lang Tags}}</a></li>
+      
+    </ul>
+    
+    <p class="navbar-text pull-right social">
+      {{tpl:include src="_social_buttons.html"}}
+      <a href="{{tpl:BlogFeedURL type="rss"}}"><i class="fa fa-rss-square"></i></a>
+    </p>
+    
+  </div> 
+</nav>
+
+<div>
+  <!-- # --BEHAVIOR-- publicTopAfterContent -->
+  {{tpl:SysBehavior behavior="publicTopAfterContent"}}
+</div>
+
+<div class="page-header">
+  <h1><strong>{{tpl:BlogName}}</strong> <small>{{tpl:BlogDescription}}</small></h1>
+</div>
+

@@ -1,0 +1,28 @@
+/*
+  TOP
+*/
+/* Body padding required by bootstrap top navbar (to avoid content overlay) */
+body { padding-top: 50px; }
+.navbar {height: 40px; }
+.navbar-brand { padding-top: 12px; }
+.social { margin-top: 0; }
+.social > a { font-size: 2.5em; }
+.page-header { padding-left: 20px; }
+
+/*
+  ENTRIES
+*/
+.post-info a { color: rgb(255, 255, 255); }
+.post-info a:hover, .post-info-co a:hover { text-decoration: none; }
+.pagination-block {
+  width: 100%;
+  text-align: center;
+}
+
+/*
+  TAGS - CATEGORY
+*/
+.tag-list { line-height: 2.2em; }
+.tag-list a:hover, .subcategories a:hover  { text-decoration: none; }
+.tag-list .label { font-size: 1em; }
+.tag-list .badge { color: rgb(92, 184, 92); background-color: rgb(255, 255, 255); }

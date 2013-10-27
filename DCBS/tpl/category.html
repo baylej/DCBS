@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="ROBOTS" content="{{tpl:BlogMetaRobots robots="NOINDEX"}}" />
+  
+  <title>{{tpl:CategoryTitle encode_html="1"}} - {{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf></title>
+  <meta name="description" lang="{{tpl:BlogLanguage}}" content="{{tpl:CategoryDescription cut_string="180" remove_html="1"}}" />
+  <meta name="copyright" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
+  <meta name="author" content="{{tpl:BlogEditor encode_html="1"}}" />
+  <meta name="date" scheme="W3CDTF" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
+  
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" lang="{{tpl:BlogLanguage}}" content="{{tpl:CategoryTitle encode_html="1"}} - {{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf>" />
+  <meta name="dc.description" lang="{{tpl:BlogLanguage}}" content="{{tpl:CategoryDescription remove_html="1"}}" />
+  <meta name="dc.language" content="{{tpl:BlogLanguage}}" />
+  <meta name="dc.publisher" content="{{tpl:BlogEditor encode_html="1"}}" />
+  <meta name="dc.rights" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
+  <meta name="dc.date" scheme="W3CDTF" content="{{tpl:BlogUpdateDate iso8601="1"}}" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
+  
+  <link rel="top" href="{{tpl:BlogURL}}" title="{{tpl:lang Home}}" />
+  <link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}" />
+  
+  <tpl:Entries no_content="1">
+    <tpl:EntriesHeader>
+      <tpl:Pagination>
+        <tpl:PaginationIf end="0">
+        <link rel="prev" title="{{tpl:lang previous entries}}" href="{{tpl:PaginationURL offset="1"}}" />
+        </tpl:PaginationIf>
+        
+        <tpl:PaginationIf start="0">
+        <link rel="next" title="{{tpl:lang next entries}}" href="{{tpl:PaginationURL offset="-1"}}" />
+        </tpl:PaginationIf>
+      </tpl:Pagination>
+    </tpl:EntriesHeader>
+    
+    <link rel="chapter" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}" />
+  </tpl:Entries>
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:CategoryFeedURL type="atom"}}" />
+  
+  {{tpl:include src="_head.html"}}
+</head>
+
+<body>
+
+{{tpl:include src="_top.html"}}
+
+<div class="container">
+
+<div class="col-md-8">
+
+  <div id="content-info">
+    <h2><i class="fa fa-thumb-tack"></i> <tpl:CategoryParents><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a> &rsaquo; </tpl:CategoryParents>
+    {{tpl:CategoryTitle encode_html="1"}}</h2>
+    {{tpl:CategoryDescription}}
+    
+    <tpl:CategoryIf has_entries="1">
+      <p><a type="application/atom+xml" href="{{tpl:CategoryFeedURL type="atom"}}"
+      title="{{tpl:lang This category's entries Atom feed}}" class="feed">{{tpl:lang Entries feed}}</a>
+      
+      <tpl:SysIf operator="or" comments_active="1" pings_active="1">
+      - <a type="application/atom+xml" href="{{tpl:CategoryFeedURL type="atom"}}/comments"
+      title="{{tpl:lang This category's comments Atom feed}}" class="feed">{{tpl:lang Comments feed}}</a>
+      </tpl:SysIf>
+      </p>
+    </tpl:CategoryIf>
+  </div>
+  
+  <tpl:CategoryFirstChildren>
+    <tpl:CategoriesHeader>
+      <p class="subcategories">
+      <h3>{{tpl:lang Subcategories}}</h3>
+    </tpl:CategoriesHeader>
+      <a href="{{tpl:CategoryURL}}"><span class="label label-danger"><i class="fa fa-thumb-tack"></i> {{tpl:CategoryTitle encode_html="1"}}</span></a>
+    <tpl:CategoriesFooter>
+      </p>
+    </tpl:CategoriesFooter>
+  </tpl:CategoryFirstChildren>
+  
+  <tpl:Entries>
+    <div id="p{{tpl:EntryID}}" class="post {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}}" lang="{{tpl:EntryLang}}" xml:lang="{{tpl:EntryLang}}">
+    <!-- # New day date -->
+    <tpl:DateHeader><p class="day-date">{{tpl:EntryDate}}</p></tpl:DateHeader>
+    
+    <h2 class="post-title"><strong><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle encode_html="1"}}</a></strong></h2>
+    
+    <p class="post-info">
+      <span class="label label-primary"><i class="fa fa-user"></i> {{tpl:EntryAuthorLink}}</span>
+      <span class="label label-info"><i class="fa fa-calendar-o"></i> {{tpl:EntryDate}} {{tpl:EntryTime}}</span>
+      <tpl:EntryTags>
+        <a href="{{tpl:TagURL}}"><span class="label label-success"><i class="fa fa-tag"></i> {{tpl:TagID}}</span></a>
+      </tpl:EntryTags>
+    </p>
+    
+    <!-- # --BEHAVIOR-- publicEntryBeforeContent -->
+    {{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
+    
+    <!-- # Entry with an excerpt -->
+    <tpl:EntryIf extended="1">
+      <div class="post-content">{{tpl:EntryExcerpt}}</div>
+      <p class="read-it"><a href="{{tpl:EntryURL}}"
+      title="{{tpl:lang Continue reading}} {{tpl:EntryTitle encode_html="1"}}">{{tpl:lang Continue
+      reading}}</a>...</p>
+    </tpl:EntryIf>
+    
+    <!-- # Entry without excerpt -->
+    <tpl:EntryIf extended="0">
+      <div class="post-content">{{tpl:EntryContent}}</div>
+    </tpl:EntryIf>
+    
+    <!-- # --BEHAVIOR-- publicEntryAfterContent -->
+    {{tpl:SysBehavior behavior="publicEntryAfterContent"}}
+    
+    <!-- # Number of comments, trackbacks and attachments -->
+    <tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
+      <p class="post-info-co">
+    </tpl:EntryIf>
+    <tpl:EntryIf show_comments="1">
+      <a href="{{tpl:EntryURL}}#comments" class="comment_count"><span class="label label-primary"><i class="fa fa-comments-o"></i> {{tpl:EntryCommentCount none="0" one="1" more="%s"}}</span></a>
+    </tpl:EntryIf>
+    <tpl:EntryIf show_pings="1">
+      <a href="{{tpl:EntryURL}}#pings" class="ping_count"><span class="label label-primary"><i class="fa fa-thumbs-o-up"></i> {{tpl:EntryPingCount none="0" one="1" more="%s"}}</span></a>
+    </tpl:EntryIf>
+    <tpl:EntryIf has_attachment="1">
+      <a href="{{tpl:EntryURL}}#attachments" class="attach_count"><span class="label label-success"><i class="fa fa-paperclip"></i> {{tpl:EntryAttachmentCount}}</span></a>
+    </tpl:EntryIf>
+    <tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
+      </p>
+    </tpl:EntryIf>
+    </div>
+    
+    <tpl:EntriesFooter>
+      <tpl:Pagination>
+        <div class="pagination-block"><ul class="pagination">
+          <li <tpl:PaginationIf start="1">class="disabled"</tpl:PaginationIf>><a href="{{tpl:PaginationURL offset="-1"}}" class="next"><i class="fa fa-chevron-left"></i></a></li>
+          <li class="active"><a href="#">{{tpl:PaginationCurrent}} / {{tpl:PaginationCounter}}</a></li>
+          <li <tpl:PaginationIf end="1">class="disabled"</tpl:PaginationIf>><a href="{{tpl:PaginationURL offset="+1"}}" class="prev"><i class="fa fa-chevron-right"></i></a></li>
+        </ul></div>
+      </tpl:Pagination>
+    </tpl:EntriesFooter>
+  </tpl:Entries>
+</div>
+
+<div class="col-md-4 well">
+{{tpl:include src="_sidebar.html"}}
+</div>
+
+</div>
+
+{{tpl:include src="_footer.html"}}
+
+</body>
+</html>
