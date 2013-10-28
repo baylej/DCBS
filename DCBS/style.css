@@ -8,6 +8,8 @@ body { padding-top: 50px; }
 .social { margin-top: 0; }
 .social > a { font-size: 2.5em; }
 .page-header { padding-left: 20px; }
+/* Fix navigation links background on phone browser */
+@media ( max-width: 768px ) { .navbar-blog-collapse { background-color: rgb(255, 255, 255); } }
 
 /*
   ENTRIES
