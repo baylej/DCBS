@@ -10,6 +10,8 @@ body { padding-top: 50px; }
 .page-header { padding-left: 20px; }
 /* Fix navigation links background on phone browser */
 @media ( max-width: 768px ) { .navbar-blog-collapse { background-color: rgb(255, 255, 255); } }
+/* responsive images */
+.post-content img { max-width: 100%; height: auto; }
 
 /*
   ENTRIES
