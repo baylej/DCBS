@@ -2,16 +2,18 @@
 
 ---
 
+*The responsive theme*
+
 Demo : http://mrhide.eu/dotclear/
 
 ## About
 
-Made with :
-[Bootstrap](http://getbootstrap.com) ver. 3.0.0
-[JQuery](http://jquery.com) ver. 1.10.2
-[Awesome](http://fortawesome.github.io/Font-Awesome/) Font ver. 4.0.0
+Made with :  
+[Bootstrap](http://getbootstrap.com) ver. 3.0.2  
+[JQuery](http://jquery.com) ver. 1.10.2  
+[Awesome](http://fortawesome.github.io/Font-Awesome/) Font ver. 4.0.3
 
-For :
+For :  
 [Dotclear 2](http://dotclear.org)
 
 ## Install
