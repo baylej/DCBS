@@ -12,8 +12,6 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-blog-collapse">
     <ul class="nav navbar-nav">
-    
-      <li><a href="{{tpl:BlogArchiveURL}}"><i class="fa fa-archive"></i> {{tpl:lang Archives}}</a></li>
 
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{tpl:lang Categories}} <b class="caret"></b></a>
@@ -24,9 +22,9 @@
         </ul>
       </li>
       
-      <li><a href="{{tpl:TagCloudURL}}"><i class="fa fa-tags"></i> {{tpl:lang Tags}}</a></li>
-      
     </ul>
+    
+    {{tpl:SimpleMenu class="nav navbar-nav" description="title"}}
     
     <p class="navbar-text pull-right social">
       {{tpl:include src="_social_buttons.html"}}
