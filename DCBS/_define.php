@@ -15,6 +15,6 @@ $this->registerModule(
 	/* Name */       "DCBS",
 	/* Description*/ "A Bootstrap3 dc2 theme",
 	/* Author */     "baylej",
-	/* Version */    '0.0.7'
+	/* Version */    '0.0.8'
 );
 ?>

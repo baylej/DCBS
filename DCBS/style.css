@@ -10,8 +10,17 @@ body { padding-top: 50px; }
 .page-header { padding-left: 20px; }
 /* Fix navigation links background on phone browser */
 @media ( max-width: 768px ) { .navbar-blog-collapse { background-color: rgb(255, 255, 255); } }
-/* responsive images */
-.post-content img { max-width: 100%; height: auto; }
+/* Allows FontAwesome icons in simplemenu labels */
+.simple-menu a:before { 
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+}
+/* Then add .liX > a:before { content: "\YYYY\20"; } with X the index of the menu entry
+   and YYYY the hexadecimal unicode of the icon (http://fontawesome.io/icons/) and \20 add a space after the icon
+   ex : .li1 > a:before { content: "\f02c\20"; } adds the fa-tags icon before the 1st entry label
+   to add an icon after the label, use `after` instead of `before` */
 
 /*
   ENTRIES
@@ -22,6 +31,8 @@ body { padding-top: 50px; }
   width: 100%;
   text-align: center;
 }
+/* responsive images */
+.post-content img { max-width: 100%; height: auto; }
 
 /*
   TAGS - CATEGORY
