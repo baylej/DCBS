@@ -4,7 +4,6 @@
 /* Body padding required by bootstrap top navbar (to avoid content overlay) */
 body { padding-top: 50px; }
 .navbar {height: 40px; }
-.navbar-brand { padding-top: 12px; }
 .social { margin-top: 0; }
 .social > a { font-size: 2.5em; }
 .page-header { padding-left: 20px; }
